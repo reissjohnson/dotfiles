@@ -1,3 +1,11 @@
 call plug#begin('~/.vim/plugged')
   Plug 'altercation/vim-colors-solarized'
+  Plug 'tpope/vim-rails'
+  Plug 'Shougo/denite.nvim'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'Townk/vim-autoclose'
+  Plug 'Shougo/unite.vim'
+  Plug 'Shougo/vimfiler.vim'
+  Plug 'janko-m/vim-test'
+  Plug 'christoomey/vim-tmux-runner'
 call plug#end()

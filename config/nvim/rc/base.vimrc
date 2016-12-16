@@ -49,4 +49,31 @@ inoremap <right> <nop>
 
 inoremap jj <esc>
 inoremap <c-c> <nop>
+
+" Denite
+"
+let mapleader = "\<Space>"
+
+nnoremap <silent><leader>uu               :Denite -buffer-name=file_rec
+    \ file_rec<cr>
+nnoremap <silent><leader>um               :Denite -buffer-name=models
+    \ -path=`getcwd()`/app/models
+    \ file_rec<cr>
+nnoremap <silent><leader>uc               :Denite -buffer-name=controllers
+  \ -path=`getcwd()`/app/controllers
+  \ file_rec<cr>
+nnoremap <silent><leader>uv               :Denite -buffer-name=views
+  \ -path=`getcwd()`/app/views
+  \ file_rec<cr>
+nnoremap <silent><leader>uj               :Denite -buffer-name=javascripts
+  \ -path=`getcwd()`/app/assets/javascripts
+  \ file_rec<cr>
+nnoremap <silent><leader>us               :Denite -buffer-name=specs
+  \ -path=`getcwd()`/spec
+  \ file_rec<cr>
+nnoremap <silent><leader>ub               :Denite -buffer-name=buffers
+  \ buffer<cr>
+
 set background=dark
+
+:let g:vimfiler_as_default_explorer = 1 
