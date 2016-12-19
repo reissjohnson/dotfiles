@@ -27,10 +27,26 @@ set hlsearch
 " search wrap around the end of the file
 set wrapscan
 
+
 " ========== Keymapping for default vim commands ===============================
 " ---------- Normal ------------------------------------------------------------
 nnoremap <leader>q :quit<cr>
 nnoremap <leader>w :write<cr>
+
+"VTRTestRunner
+nnoremap <leader>va :VtrAttachToPane<cr>
+nnoremap <leader>vv :VtrSendCommand<space>
+nnoremap <leader>v<space> :VtrSendCommand<cr>
+
+let test#strategy = 'vtr'
+  nnoremap <leader>tn :VtrAttachToPane<cr><bar>:TestNearest<cr>
+  nnoremap <leader>tf :VtrAttachToPane<cr><bar>:TestFile<cr>
+  nnoremap <leader>ta :VtrAttachToPane<cr><bar>:TestSuite<cr>
+  nnoremap <leader>tt :VtrAttachToPane<cr><bar>:TestLast<cr>
+
+"vimfiler
+nnoremap <leader>e :VimFilerCurrentDir<cr>
+nnoremap <leader>ee :VimFilerBufferDir<cr>
 
 " split panes
 nnoremap <leader>\\ :vsplit<cr>
@@ -52,7 +68,6 @@ inoremap <c-c> <nop>
 
 " Denite
 "
-let mapleader = "\<Space>"
 
 nnoremap <silent><leader>uu               :Denite -buffer-name=file_rec
     \ file_rec<cr>
@@ -74,6 +89,8 @@ nnoremap <silent><leader>us               :Denite -buffer-name=specs
 nnoremap <silent><leader>ub               :Denite -buffer-name=buffers
   \ buffer<cr>
 
-set background=dark
-
 :let g:vimfiler_as_default_explorer = 1 
+
+set background=dark
+set cursorline
+

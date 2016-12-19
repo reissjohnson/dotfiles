@@ -1,5 +1,6 @@
-for f in split(glob('~/.config/nvim/rc/*.vimrc'), '\n')
-    exe 'source' f
-endfor
+let mapleader = "\<Space>"
+
+source ~/.dotfiles/config/nvim/rc/base.vimrc
+source ~/.dotfiles/config/nvim/rc/vimplug.vimrc
 
 colorscheme solarized
