@@ -44,6 +44,17 @@ let test#strategy = 'vtr'
   nnoremap <leader>ta :VtrAttachToPane<cr><bar>:TestSuite<cr>
   nnoremap <leader>tt :VtrAttachToPane<cr><bar>:TestLast<cr>
 
+nnoremap <leader>gf :Gfetch<cr>
+nnoremap <leader>gc :Gcommit -m ''<left>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr><c-w><s-h>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Gpull<cr>
+
+"codesearch
+nnoremap <leader>cs :Unite -buffer-name=codesearch codesearch<cr>
+
 "vimfiler
 nnoremap <leader>e :VimFilerCurrentDir<cr>
 nnoremap <leader>ee :VimFilerBufferDir<cr>
@@ -88,6 +99,9 @@ nnoremap <silent><leader>us               :Denite -buffer-name=specs
   \ file_rec<cr>
 nnoremap <silent><leader>ub               :Denite -buffer-name=buffers
   \ buffer<cr>
+
+call denite#custom#map('insert', '<tab>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<s-tab>', '<denite:move_to_previous_line>', 'noremap')
 
 :let g:vimfiler_as_default_explorer = 1 
 
