@@ -1,6 +1,5 @@
 " disable mouse
 set mouse=
-
 " tabs to spaces
 set tabstop=2 shiftwidth=2 shiftround expandtab
 " set column width and highlight after
@@ -32,6 +31,8 @@ set wrapscan
 " ---------- Normal ------------------------------------------------------------
 nnoremap <leader>q :quit<cr>
 nnoremap <leader>w :write<cr>
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 
 "VTRTestRunner
 nnoremap <leader>va :VtrAttachToPane<cr>
@@ -53,7 +54,7 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gl :Gpull<cr>
 
 "codesearch
-nnoremap <leader>cs :Unite -buffer-name=codesearch codesearch<cr>
+nnoremap <leader>cs :Unite -start-insert -buffer-name=codesearch codesearch<cr>
 
 "vimfiler
 nnoremap <leader>e :VimFilerCurrentDir<cr>
@@ -77,8 +78,10 @@ inoremap <right> <nop>
 inoremap jj <esc>
 inoremap <c-c> <nop>
 
-" Denite
-"
+"Deoplete
+
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
 nnoremap <silent><leader>uu               :Denite -buffer-name=file_rec
     \ file_rec<cr>
@@ -102,6 +105,9 @@ nnoremap <silent><leader>ub               :Denite -buffer-name=buffers
 
 call denite#custom#map('insert', '<tab>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<s-tab>', '<denite:move_to_previous_line>', 'noremap')
+
+" Vim Google
+nnoremap <leader>go :Google 
 
 :let g:vimfiler_as_default_explorer = 1 
 
