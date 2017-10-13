@@ -54,7 +54,9 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gl :Gpull<cr>
 
 "codesearch
-nnoremap <leader>cs :Unite -start-insert -buffer-name=codesearch codesearch<cr>
+nnoremap <leader>cs :Ag<space>
+nnoremap <leader>ccl :ccl<cr>
+nnoremap <leader>cco :cope<cr>
 
 "vimfiler
 nnoremap <leader>e :VimFilerCurrentDir<cr>
@@ -77,6 +79,10 @@ inoremap <right> <nop>
 
 inoremap jj <esc>
 inoremap <c-c> <nop>
+
+" tabs
+nnoremap <leader>tv :tabn<cr>
+nnoremap <leader>tb :tabe<cr>
 
 "Deoplete
 
@@ -114,3 +120,4 @@ nnoremap <leader>go :Google
 set background=dark
 set cursorline
 
+noremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

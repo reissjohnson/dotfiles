@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-endwise'
   Plug 'junkblocker/unite-codesearch'
   Plug 'tpope/vim-fugitive'
   Plug 'rhysd/accelerated-jk'
@@ -16,4 +15,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-runner'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'szw/vim-g'
+  Plug 'rking/ag.vim'
 call plug#end()
