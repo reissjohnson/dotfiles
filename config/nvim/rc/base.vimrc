@@ -1,7 +1,9 @@
 " disable mouse
 set mouse=
 " tabs to spaces
-set tabstop=2 shiftwidth=2 shiftround expandtab
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 " set column width and highlight after
 set textwidth=80 colorcolumn=+1
 set number relativenumber
@@ -40,10 +42,10 @@ nnoremap <leader>vv :VtrSendCommand<space>
 nnoremap <leader>v<space> :VtrSendCommand<cr>
 
 let test#strategy = 'vtr'
-  nnoremap <leader>tn :VtrAttachToPane<cr><bar>:TestNearest<cr>
-  nnoremap <leader>tf :VtrAttachToPane<cr><bar>:TestFile<cr>
-  nnoremap <leader>ta :VtrAttachToPane<cr><bar>:TestSuite<cr>
-  nnoremap <leader>tt :VtrAttachToPane<cr><bar>:TestLast<cr>
+  nnoremap <leader>tn :TestNearest<cr>
+  nnoremap <leader>tf :TestFile<cr>
+  nnoremap <leader>ta :TestSuite<cr>
+  nnoremap <leader>tt :TestLast<cr>
 
 nnoremap <leader>gf :Gfetch<cr>
 nnoremap <leader>gc :Gcommit -m ''<left>
@@ -114,6 +116,68 @@ call denite#custom#map('insert', '<s-tab>', '<denite:move_to_previous_line>', 'n
 
 " Vim Google
 nnoremap <leader>go :Google 
+
+"Vim JSX
+let g:jsx_ext_required = 0
+
+"Vim Prettier
+
+let g:prettier#autoformat = 0
+let g:prettier#exec_cmd_async = 1
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+
+" max line length that prettier will wrap on
+let g:prettier#config#print_width = 80
+" number of spaces per indentation level
+let g:prettier#config#tab_width = 4
+" single quotes over double quotes
+let g:prettier#config#single_quote = 'true'
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
+" none|es5|all
+let g:prettier#config#trailing_comma = 'none'
+" flow|babylon|typescript|postcss|json|graphql
+let g:prettier#config#parser = 'flow'
+
+"Ale
+scriptencoding utf-32
+
+let g:ale_linters = {
+      \   'haml': ['haml_lint'],
+      \   'javascript': ['eslint', 'flow'],
+      \   'jsx': ['eslint', 'flow'],
+      \   'ruby': ['rubocop'],
+      \   'yaml': ['yamllint'],
+      \ }
+
+let g:ale_fixers = {
+      \   'ruby': ['rubocop'],
+      \ }
+
+nnoremap <silent><C-n> :ALENext<cr>
+nnoremap <silent><C-p> :ALEPrevious<cr>
+nnoremap <silent><localleader>f   :ALEFix<cr>
+
+let g:ale_sign_error = '••'
+let g:ale_sign_warning = '••'
+
+highlight link ALEErrorSign DiffDelete
+highlight link ALEError DiffDelete
+
+highlight link ALEWarningSign Todo
+highlight link ALEWarning Todo
+
+let g:ale_echo_msg_format = '%linter%: %s'
+
+"Vim Emmit
+
+let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 
 :let g:vimfiler_as_default_explorer = 1 
 
